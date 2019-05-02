@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # custom apps
     'accounts',
     'addcandidates_app',
@@ -41,15 +40,16 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 
-
+CORS_ORIGIN_ALLOW_ALL = False
 CSRF_COOKIE_SECURE = False
-SESSION_SAVE_EVERY_REQUEST= True
+SESSION_SAVE_EVERY_REQUEST = True
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'jobportal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, '')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'jobportal.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+#
 
 DATABASES = {
     'default': {
@@ -100,13 +101,13 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'jobportal',
-#         'USER': 'postgres',
-#         'PASSWORD': 'root',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+# #         'NAME': 'jobportal',
+# #         'USER': 'postgres',
+# #         'PASSWORD': 'root',
+# #         'HOST': 'localhost',
+# #         'PORT': '5432',
+# #     }
+# # }
 
 
 
@@ -147,7 +148,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'accounts/templates/static')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'addcandidates_app/media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media'
