@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from addcandidates_app.models import AddCandidate
+from addcandidates_app.models import It_Jobs, Non_It_Jobs, Delivery_Boy
 
 class Search_Candidate(admin.ModelAdmin):
 
@@ -9,4 +9,6 @@ class Search_Candidate(admin.ModelAdmin):
     ordering = ('email',)
     filter_horizontal = ()
 
-admin.site.register(AddCandidate, Search_Candidate)
+admin.site.register(It_Jobs, Search_Candidate)
+admin.site.register(Non_It_Jobs, Search_Candidate)
+# admin.site.register(Delivery_Boy, Search_Candidate)

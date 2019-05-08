@@ -25,11 +25,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+
     # custom apps
     'accounts',
     'addcandidates_app',
     'crispy_forms',
-    'rest_framework',
+    'addusers',
+    # 'app'
+    # 'corsheaders'
 
 ]
 
@@ -41,7 +45,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
-    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'corsheaders.middleware.CorsMiddleware',
@@ -101,13 +105,13 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-# #         'NAME': 'jobportal',
-# #         'USER': 'postgres',
-# #         'PASSWORD': 'root',
-# #         'HOST': 'localhost',
-# #         'PORT': '5432',
-# #     }
-# # }
+#         'NAME': 'jobportal',
+#         'USER': 'postgres',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 
 
@@ -149,5 +153,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
+MEDIA_URL = '/document/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'document')
